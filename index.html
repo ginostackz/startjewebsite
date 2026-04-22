@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="StartjeWebsite — Professionele websites binnen 5 werkdagen. Klaar voor groei.">
+<title>StartjeWebsite — Binnen 5 werkdagen online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #050d1a;
+    --navy2: #0a1628;
+    --blue: #1a6fd4;
+    --blue-bright: #2e8ef7;
+    --gray: #8a9bb5;
+    --gray-light: #c4cfde;
+    --white: #f0f4fa;
+    --border: rgba(255,255,255,0.07);
+    --glass: rgba(255,255,255,0.04);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .logo-text { font-family: 'Syne', sans-serif; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5,13,26,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo img { height: 36px; }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--blue-bright) !important; color: white !important; }
+
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 800px 600px at 60% 40%, rgba(26,111,212,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 400px at 10% 80%, rgba(46,142,247,0.06) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(26,111,212,0.15);
+    border: 1px solid rgba(26,111,212,0.3);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    color: #6eb5ff;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #2e8ef7;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, #2e8ef7, #1a6fd4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 520px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--blue-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(46,142,247,0.25);
+  }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .btn-whatsapp:hover {
+    background: var(--glass);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+
+  .whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 5%; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-bright);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    color: var(--gray);
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  /* HOE HET WERKT */
+  .how { background: var(--navy2); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .step {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .step:hover {
+    border-color: rgba(46,142,247,0.3);
+    background: rgba(26,111,212,0.06);
+    transform: translateY(-4px);
+  }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(46,142,247,0.12);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .step h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* PAKKETTEN */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .package {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 32px;
+    position: relative;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .package.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .package:hover {
+    transform: translateY(-6px);
+    border-color: rgba(46,142,247,0.25);
+  }
+
+  .package.featured {
+    border-color: var(--blue);
+    background: rgba(26,111,212,0.08);
+  }
+
+  .package-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .package-name {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  .package-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 58px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .package-price span {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray);
+  }
+
+  .package-recurring {
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 32px;
+  }
+
+  .package-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 28px;
+  }
+
+  .package-features {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+
+  .package-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--gray-light);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .package-features li::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    background: rgba(46,142,247,0.15);
+    border: 1px solid rgba(46,142,247,0.3);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%232e8ef7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 1px;
+  }
+
+  .package .btn-primary, .package .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .btn-outline:hover {
+    background: var(--glass);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  /* REVIEWS */
+  .reviews { background: var(--navy2); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .review {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s;
+  }
+
+  .review.visible { opacity: 1; transform: translateY(0); }
+
+  .stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .star {
+    width: 14px;
+    height: 14px;
+    background: #f59e0b;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  .review-text {
+    font-size: 15px;
+    color: var(--gray-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .review-author {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .review-company {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* FAQ */
+  .faq-list {
+    margin-top: 60px;
+    max-width: 720px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s;
+  }
+
+  .faq-item.visible { opacity: 1; transform: translateY(0); }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    padding: 24px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--blue-bright);
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-answer {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+    padding-bottom: 24px;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 120px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 800px 500px at 50% 50%, rgba(26,111,212,0.1) 0%, transparent 70%);
+  }
+
+  .cta-section h2 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .cta-section p {
+    color: var(--gray);
+    font-size: 18px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy2);
+    border-top: 1px solid var(--border);
+    padding: 60px 5% 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand p {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul li a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-bottom p {
+    color: var(--gray);
+    font-size: 13px;
+  }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+    text-decoration: none;
+    transition: all 0.3s;
+    animation: fadeIn 1s 1s both;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+  }
+
+  .whatsapp-float svg { width: 28px; height: 28px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: var(--navy2);
+      padding: 24px 5%;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <img src="StartjeWebsite_logo_ontwerp.png" alt="StartjeWebsite logo">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hoe-het-werkt">Hoe het werkt</a></li>
+    <li><a href="#pakketten">Pakketten</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://wa.me/31616650102" class="nav-cta">Start nu</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Binnen 5 werkdagen online</div>
+    <h1>Jouw website.<br><span>Klaar voor groei.</span></h1>
+    <p>Professionele websites die direct indruk maken — gebouwd met de nieuwste technologie. Geschikt voor iedere ondernemer die serieus online wil staan.</p>
+    <div class="hero-buttons">
+      <a href="#pakketten" class="btn-primary">Bekijk pakketten →</a>
+      <a href="https://wa.me/31616650102" class="btn-whatsapp">
+        <span class="whatsapp-icon">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.526 5.855L.057 23.882l6.204-1.629A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.876 9.876 0 01-5.031-1.378l-.361-.214-3.735.979.997-3.645-.235-.374A9.861 9.861 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106S21.894 6.58 21.894 12 17.42 21.894 12 21.894z"/></svg>
+        </span>
+        Direct via WhatsApp
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-number">5</div>
+        <div class="stat-label">Werkdagen oplevering</div>
+      </div>
+      <div>
+        <div class="stat-number">3</div>
+        <div class="stat-label">Pakketten beschikbaar</div>
+      </div>
+      <div>
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Mobiel geoptimaliseerd</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOE HET WERKT -->
+<section class="how" id="hoe-het-werkt">
+  <div class="section-label">Het proces</div>
+  <h2 class="section-title">Van idee naar live website<br>in 4 stappen</h2>
+  <p class="section-sub">Geen gedoe, geen technische kennis nodig. Jij levert de info, wij leveren de website.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Kies je pakket</h3>
+      <p>Kies het pakket dat past bij jouw bedrijf en budget. Twijfel je? Wij helpen je kiezen via WhatsApp.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Vul het formulier in</h3>
+      <p>Na betaling ontvang je een intake-formulier. Vul in wat je bedrijf doet, je wensen en stuur je logo mee.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Wij bouwen je site</h3>
+      <p>Binnen 5 werkdagen bouwen wij een professionele, snelle website die direct indruk maakt.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Live en klaar voor groei</h3>
+      <p>Jij keurt de site goed, wij zetten hem live. Inclusief revisieronde zodat alles precies klopt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAKKETTEN -->
+<section id="pakketten">
+  <div class="section-label">Pakketten</div>
+  <h2 class="section-title">Kies wat bij jou past</h2>
+  <p class="section-sub">Eerlijke prijzen. Duidelijk wat je krijgt. Geen verborgen kosten.</p>
+  <div class="packages-grid">
+
+    <div class="package">
+      <div class="package-name">Basic</div>
+      <div class="package-price">€499<span> eenmalig</span></div>
+      <div class="package-recurring">daarna €79 / maand</div>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>1–3 pagina's professioneel ontwerp</li>
+        <li>Volledig mobiel geoptimaliseerd</li>
+        <li>Contactformulier + WhatsApp knop</li>
+        <li>SEO basis (titels, meta, snelheid)</li>
+        <li>Google Analytics gekoppeld</li>
+        <li>1 revisieronde inbegrepen</li>
+        <li>Oplevering binnen 5 werkdagen</li>
+      </ul>
+      <a href="https://wa.me/31616650102?text=Ik+wil+het+Basic+pakket" class="btn-outline">Start direct →</a>
+    </div>
+
+    <div class="package featured">
+      <div class="package-badge">⭐ Meest gekozen</div>
+      <div class="package-name">Pro</div>
+      <div class="package-price">€899<span> eenmalig</span></div>
+      <div class="package-recurring">daarna €79 / maand</div>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>5–8 pagina's professioneel ontwerp</li>
+        <li>Volledig mobiel geoptimaliseerd</li>
+        <li>Contactformulier + WhatsApp knop</li>
+        <li>Reviews & portfolio sectie</li>
+        <li>SEO uitgebreid (sitemap, schema, snelheid)</li>
+        <li>Google Analytics gekoppeld</li>
+        <li>2 revisierondes inbegrepen</li>
+        <li>Oplevering binnen 7 werkdagen</li>
+      </ul>
+      <a href="https://wa.me/31616650102?text=Ik+wil+het+Pro+pakket" class="btn-primary">Start direct →</a>
+    </div>
+
+    <div class="package">
+      <div class="package-name">Premium</div>
+      <div class="package-price">€1499<span> eenmalig</span></div>
+      <div class="package-recurring">daarna €79 / maand</div>
+      <div class="package-divider"></div>
+      <ul class="package-features">
+        <li>10+ pagina's professioneel ontwerp</li>
+        <li>Boekingssysteem of webshopfunctie</li>
+        <li>Reviews, portfolio & blog sectie</li>
+        <li>SEO geavanceerd (lokale SEO, keywords)</li>
+        <li>Google Analytics + Search Console</li>
+        <li>Prioriteit support — reactie binnen 24u</li>
+        <li>3 revisierondes inbegrepen</li>
+        <li>Oplevering binnen 10 werkdagen</li>
+      </ul>
+      <a href="https://wa.me/31616650102?text=Ik+wil+het+Premium+pakket" class="btn-outline">Start direct →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-label">Ervaringen</div>
+  <h2 class="section-title">Wat onze klanten zeggen</h2>
+  <div class="reviews-grid">
+    <div class="review">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="review-text">"Binnen 5 dagen had ik een prachtige website. Professioneel, snel en precies wat ik wilde. Echt top service."</p>
+      <div class="review-author">Mohammed A.</div>
+      <div class="review-company">Schoonmaakbedrijf Rotterdam</div>
+    </div>
+    <div class="review">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="review-text">"Eindelijk een website waar ik trots op ben. Mijn klanten reageren super positief en ik krijg veel meer aanvragen."</p>
+      <div class="review-author">Lisa V.</div>
+      <div class="review-company">Personal trainer Amsterdam</div>
+    </div>
+    <div class="review">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="review-text">"Goede communicatie, snelle oplevering en een resultaat dat er écht professioneel uitziet. Aanrader!"</p>
+      <div class="review-author">Kevin B.</div>
+      <div class="review-company">Klusbedrijf Den Haag</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-label">Vragen</div>
+  <h2 class="section-title">Veelgestelde vragen</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Wat houdt de maandelijkse €79 in?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">De €79 per maand dekt je hosting, domeinbeheer, technisch onderhoud en kleine aanpassingen. Zo blijft je website altijd snel, veilig en up-to-date zonder dat jij er naar om hoeft te kijken.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Heb ik technische kennis nodig?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Nee, helemaal niet. Jij levert de informatie over je bedrijf, wij doen de rest. Het enige wat je nodig hebt is een idee van wat je wilt en wij realiseren het.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Wat als ik niet tevreden ben?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Elk pakket bevat revisierondes. Je geeft feedback en wij passen aan totdat je tevreden bent. We gaan pas live als jij goedkeuring geeft.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Kan ik later upgraden naar een groter pakket?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Ja, dat is altijd mogelijk. Je betaalt alleen het verschil en wij breiden je website uit. Geen nieuwe site nodig.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Hoe neem ik contact op?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Het makkelijkst via WhatsApp op +31 6 16650102. Je krijgt altijd snel antwoord en we bespreken gratis wat het beste bij jouw bedrijf past.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <h2>Klaar om online te gaan?</h2>
+  <p>Stuur een berichtje — binnen 24 uur weet je wat we voor je kunnen doen.</p>
+  <div class="cta-buttons">
+    <a href="#pakketten" class="btn-primary">Bekijk pakketten →</a>
+    <a href="https://wa.me/31616650102" class="btn-whatsapp">
+      <span class="whatsapp-icon">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.526 5.855L.057 23.882l6.204-1.629A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.876 9.876 0 01-5.031-1.378l-.361-.214-3.735.979.997-3.645-.235-.374A9.861 9.861 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106S21.894 6.58 21.894 12 17.42 21.894 12 21.894z"/></svg>
+      </span>
+      Direct via WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="StartjeWebsite_logo_ontwerp.png" alt="StartjeWebsite" style="height:32px;">
+      <p>Professionele websites voor ondernemers die serieus online willen staan. Binnen 5 werkdagen live.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigatie</h4>
+      <ul>
+        <li><a href="#hoe-het-werkt">Hoe het werkt</a></li>
+        <li><a href="#pakketten">Pakketten</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/31616650102">WhatsApp</a></li>
+        <li><a href="tel:+31616650102">+31 6 16650102</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 StartjeWebsite. Alle rechten voorbehouden.</p>
+    <p>KVK: [invullen]</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/31616650102" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.526 5.855L.057 23.882l6.204-1.629A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.876 9.876 0 01-5.031-1.378l-.361-.214-3.735.979.997-3.645-.235-.374A9.861 9.861 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106S21.894 6.58 21.894 12 17.42 21.894 12 21.894z"/></svg>
+</a>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.step, .package, .review, .faq-item').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
